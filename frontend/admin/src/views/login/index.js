@@ -4,7 +4,7 @@ class Login extends Component {
   render ()
   {
     return (
-      <div>
+      <div className="layout-header-background">
         Login
       </div>
     )

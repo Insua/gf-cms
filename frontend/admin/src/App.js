@@ -1,5 +1,6 @@
 import React, { Component, lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import './assets/styles/index.scss'
 
 const Login = lazy(() => import('./views/login'))
 const Layout = lazy(() => import('./views/layout'))
@@ -9,10 +10,10 @@ class App extends Component {
   {
     return (
       <Router>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback="">
           <Switch>
             <Route exact path={`${process.env.PUBLIC_URL}/login`} component={Login}/>
-            <Route path={`${process.env.PUBLIC_URL}/`} exact component={Layout}/>
+            <Route path={`${process.env.PUBLIC_URL}/`} component={Layout}/>
           </Switch>
         </Suspense>
       </Router>
