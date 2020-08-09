@@ -5,6 +5,6 @@ CREATE TABLE IF NOT EXISTS `users` (
 `name` VARCHAR(255) NOT NULL,
 `created_at` TIMESTAMP NULL,
 `updated_at` TIMESTAMP NULL
-);
+) ENGINE=InnoDB DEFAULT CHARACTER SET utf8mb4 COLLATE 'utf8mb4_unicode_ci';
 -- +migrate Down
 DROP TABLE IF EXISTS `users`;

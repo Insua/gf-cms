@@ -44,6 +44,6 @@ func dbMigrate(direction string) {
 	if n > 0 {
 		color.Info.Prompt(fmt.Sprintf("Migrate %s success %d", direction, n))
 	} else {
-		color.Warn.Prompt(fmt.Sprintf("Noting to migrate %s", direction))
+		color.Warn.Prompt(fmt.Sprintf("Nothing to migrate %s", direction))
 	}
 }
