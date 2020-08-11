@@ -2,8 +2,8 @@ import React, { Component, lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './assets/styles/index.scss'
 
-const Login = lazy(() => import('./views/login'))
-const Layout = lazy(() => import('./views/layout'))
+const Login = lazy(() => import('_v/login'))
+const Layout = lazy(() => import('_v/layout'))
 
 class App extends Component {
   render ()

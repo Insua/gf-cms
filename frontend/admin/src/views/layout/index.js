@@ -2,6 +2,7 @@ import React, { Component, lazy, Suspense } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { Layout as Container } from 'antd'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
+import axios from 'axios'
 import SideMenu from './components/side_menu'
 import routes from '../../routes'
 import './index.scss'
@@ -51,13 +52,18 @@ class Layout extends Component {
                     )
                   })
                 }
-                <Route component={lazy(() => import('../errors/404'))}/>
+                <Route component={lazy(() => import('_v/errors/404'))}/>
               </Switch>
             </Suspense>
           </Content>
         </Container>
       </Container>
     )
+  }
+
+  async componentDidMount () {
+    const {data} = await axios.get('/api/admin/auth/user')
+    console.log(data)
   }
 }
 
