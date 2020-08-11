@@ -1,7 +1,8 @@
 package auth
 
 import (
-	"github.com/gogf/gf/frame/g"
+	"gf-cms/app/model/auth/users"
+
 	"github.com/gogf/gf/net/ghttp"
 )
 
@@ -10,7 +11,20 @@ func Login(r *ghttp.Request) {
 }
 
 func User(r *ghttp.Request) {
-	r.Response.WriteJson(g.Map{
-		"user": "user",
-	})
+	isLogin := false
+	if id := r.Session.GetInt("user-id"); id > 0 {
+		count, err := users.FindCount("id=(?)", id)
+		if err == nil && count > 0 {
+			isLogin = true
+		}
+	}
+	type Response struct {
+		User *int `json:"user"`
+	}
+	var response Response
+	if isLogin {
+		user := r.Session.GetInt("user-id")
+		response.User = &user
+	}
+	r.Response.WriteJson(response)
 }
