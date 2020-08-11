@@ -9,4 +9,5 @@ import (
 func auth(g *ghttp.RouterGroup) {
 	g.POST("/login", authController.Login)
 	g.GET("/user", authController.User)
+	g.GET("/test", authController.Test)
 }

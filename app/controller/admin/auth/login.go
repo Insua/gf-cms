@@ -28,3 +28,8 @@ func User(r *ghttp.Request) {
 	}
 	r.Response.WriteJson(response)
 }
+
+func Test(r *ghttp.Request) {
+	user, _ := users.FindAll()
+	r.Response.WriteJson(user)
+}

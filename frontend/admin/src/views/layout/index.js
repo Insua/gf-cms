@@ -2,7 +2,8 @@ import React, { Component, lazy, Suspense } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { Layout as Container } from 'antd'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
-import axios from 'axios'
+import axios from '_l/axios'
+import history from '_l/history'
 import SideMenu from './components/side_menu'
 import routes from '../../routes'
 import './index.scss'
@@ -63,7 +64,9 @@ class Layout extends Component {
 
   async componentDidMount () {
     const {data} = await axios.get('/api/admin/auth/user')
-    console.log(data)
+    if (data.user === null) {
+      history.push(`${process.env.PUBLIC_URL}/login`)
+    }
   }
 }
 

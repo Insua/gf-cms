@@ -1,5 +1,6 @@
 import React, { Component, lazy, Suspense } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { Router, Route, Switch } from 'react-router-dom'
+import history from '_l/history'
 import './assets/styles/index.scss'
 
 const Login = lazy(() => import('_v/login'))
@@ -9,7 +10,7 @@ class App extends Component {
   render ()
   {
     return (
-      <Router>
+      <Router history={history}>
         <Suspense fallback="">
           <Switch>
             <Route exact path={`${process.env.PUBLIC_URL}/login`} component={Login}/>
