@@ -1,5 +1,6 @@
 import React, { Component, lazy, Suspense } from 'react'
-import { Router, Route, Switch } from 'react-router-dom'
+import { Router, Switch } from 'react-router-dom'
+import NprogressRoute from '_c/nprogress-route'
 import history from '_l/history'
 import './assets/styles/index.scss'
 
@@ -13,8 +14,8 @@ class App extends Component {
       <Router history={history}>
         <Suspense fallback="">
           <Switch>
-            <Route exact path={`${process.env.PUBLIC_URL}/login`} component={Login}/>
-            <Route path={`${process.env.PUBLIC_URL}/`} component={Layout}/>
+            <NprogressRoute {...{exact: true, path: `${process.env.PUBLIC_URL}/login`, component: Login}}/>
+            <NprogressRoute {...{path: `${process.env.PUBLIC_URL}/`, component: Layout}}/>
           </Switch>
         </Suspense>
       </Router>

@@ -4,6 +4,7 @@ import { Layout as Container } from 'antd'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
 import axios from '_l/axios'
 import history from '_l/history'
+import NprogressRoute from '_c/nprogress-route'
 import SideMenu from './components/side_menu'
 import routes from '../../routes'
 import './index.scss'
@@ -25,8 +26,7 @@ class Layout extends Component {
 
   render ()
   {
-    if (this.state.detect)
-    {
+    if (this.state.detect) {
       return (
         <Container className="out-container">
           <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
@@ -52,9 +52,7 @@ class Layout extends Component {
                   {
                     routes.map((route, index) => {
                       return route.component && (
-                        <Route key={index} path={`${process.env.PUBLIC_URL}/${route.path}`} exact={route.exact}
-                               name={route.name} component={route.component}/>
-                      )
+                        <NprogressRoute  key={index} {...{exact: route.exact, path: `${process.env.PUBLIC_URL}/${route.path}`, name: route.name, component: route.component}}/>)
                     })
                   }
                   <Route component={lazy(() => import('_v/errors/404'))}/>

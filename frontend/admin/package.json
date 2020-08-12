@@ -11,6 +11,7 @@
     "axios": "^0.19.2",
     "customize-cra": "^1.0.0",
     "http-proxy-middleware": "^1.0.5",
+    "nprogress": "^0.2.0",
     "react": "^16.13.1",
     "react-app-rewired": "^2.1.6",
     "react-dom": "^16.13.1",
