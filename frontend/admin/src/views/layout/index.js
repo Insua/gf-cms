@@ -13,7 +13,8 @@ const {Header, Sider, Content} = Container
 class Layout extends Component {
 
   state = {
-    collapsed: false
+    collapsed: false,
+    detect: false
   }
 
   toggle = () => {
@@ -24,48 +25,58 @@ class Layout extends Component {
 
   render ()
   {
-    return (
-      <Container className="out-container">
-        <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
-          <div className="layout-logo">gf cms</div>
-          <SideMenu/>
-        </Sider>
-        <Container className="layout-container">
-          <Header className="layout-header-background" style={{ padding: 0 }}>
-            {
-              React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-                className: 'trigger',
-                onClick: this.toggle
-              })
-            }
-          </Header>
-          <Content className="site-layout-content" style={{
-            margin: '24px 16px',
-            padding: 24,
-            minHeight: 280,
-          }}>
-            <Suspense fallback="">
-              <Switch>
-                {
-                  routes.map((route, index) => {
-                    return route.component && (
-                      <Route key={index} path={`${process.env.PUBLIC_URL}/${route.path}`} exact={route.exact} name={route.name} component={route.component}/>
-                    )
-                  })
-                }
-                <Route component={lazy(() => import('_v/errors/404'))}/>
-              </Switch>
-            </Suspense>
-          </Content>
+    if (this.state.detect)
+    {
+      return (
+        <Container className="out-container">
+          <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
+            <div className="layout-logo">gf cms</div>
+            <SideMenu/>
+          </Sider>
+          <Container className="layout-container">
+            <Header className="layout-header-background" style={{ padding: 0 }}>
+              {
+                React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+                  className: 'trigger',
+                  onClick: this.toggle
+                })
+              }
+            </Header>
+            <Content className="site-layout-content" style={{
+              margin: '24px 16px',
+              padding: 24,
+              minHeight: 280,
+            }}>
+              <Suspense fallback="">
+                <Switch>
+                  {
+                    routes.map((route, index) => {
+                      return route.component && (
+                        <Route key={index} path={`${process.env.PUBLIC_URL}/${route.path}`} exact={route.exact}
+                               name={route.name} component={route.component}/>
+                      )
+                    })
+                  }
+                  <Route component={lazy(() => import('_v/errors/404'))}/>
+                </Switch>
+              </Suspense>
+            </Content>
+          </Container>
         </Container>
-      </Container>
-    )
+      )
+    } else {
+      return <div/>
+    }
   }
 
   async componentDidMount () {
     const {data} = await axios.get('/api/admin/auth/user')
     if (data.user === null) {
-      history.push(`${process.env.PUBLIC_URL}/login`)
+      history.replace(`${process.env.PUBLIC_URL}/login`)
+    } else {
+      this.setState({
+        detect: true
+      })
     }
   }
 }
