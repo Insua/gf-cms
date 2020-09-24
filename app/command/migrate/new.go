@@ -1,37 +1,15 @@
 package migrate
 
 import (
-	"fmt"
-	"os"
-	"path"
-	"strings"
-	"text/template"
-	"time"
+	migrate "github.com/Insua/gorm-migrate"
+	"github.com/gookit/color"
 )
 
-var templateContent = `
--- +migrate Up
-
--- +migrate Down
-`
-var tpl *template.Template
-
-func init() {
-	tpl = template.Must(template.New("new_migration").Parse(templateContent))
-}
-
 func New(fileName string) {
-	fileNameWithTimeStamp := fmt.Sprintf("%s-%s.sql", time.Now().Format("20060102150405"), strings.TrimSpace(fileName))
-	pathName := path.Join("database/migrations", fileNameWithTimeStamp)
-	f, err := os.Create(pathName)
-
+	err := migrate.Create("database/migrations", "migrations", fileName)
 	if err != nil {
-		fmt.Println("Create migration files error")
-		os.Exit(1)
-	}
-	defer func() { _ = f.Close() }()
-
-	if err := tpl.Execute(f, nil); err != nil {
-		fmt.Println("Create migration files error")
+		color.Red.Println(err)
+	} else {
+		color.Green.Println(fileName + " has be created")
 	}
 }

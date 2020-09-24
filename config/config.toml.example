@@ -26,3 +26,9 @@
         Path   = "/tmp/log/gf-app/sql"
         Level  = "all"
         Stdout = true
+
+#gorm
+[gorm]
+    [mysql]
+        dsn = "root:12345@tcp(127.0.0.1:3306)/gf_cms?charset=utf8mb4&parseTime=True&loc=Local"
+        debug = true
