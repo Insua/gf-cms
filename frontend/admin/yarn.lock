@@ -3197,6 +3197,11 @@ code-point-at@^1.0.0:
   resolved "https://registry.npm.taobao.org/code-point-at/download/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
 
+collect.js@^4.28.2:
+  version "4.28.2"
+  resolved "https://registry.npm.taobao.org/collect.js/download/collect.js-4.28.2.tgz#08c11c48923641f7e86899adbd55aa31ed5de5b0"
+  integrity sha1-CMEcSJI2QffoaJmtvVWqMe1d5bA=
+
 collection-visit@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npm.taobao.org/collection-visit/download/collection-visit-1.0.0.tgz#4bc0373c164bc3291b4d368c829cf1a80a59dca0"

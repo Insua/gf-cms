@@ -4,6 +4,10 @@ github.com/Insua/gorm-migrate v0.0.1 h1:E4Z4T8CXQ4kcxnCKylDU4Icqzpa9QNhRdHQVGFsB
 github.com/Insua/gorm-migrate v0.0.1/go.mod h1:YSpFTI7nWE7hA25wA4bgO29H4Q6fDP14xEAXq7NfXdQ=
 github.com/Insua/gorm-migrate v0.0.3 h1:/3z5KhHWc9RsueoR7zah0HCaFTVbHd69El+spnHt8Ng=
 github.com/Insua/gorm-migrate v0.0.3/go.mod h1:YSpFTI7nWE7hA25wA4bgO29H4Q6fDP14xEAXq7NfXdQ=
+github.com/Insua/gorm-migrate v0.0.4 h1:s9Cdqrvy7ihvrWWbiMgbBAQRHGxKgkB2i2f68OVFJGE=
+github.com/Insua/gorm-migrate v0.0.4/go.mod h1:YSpFTI7nWE7hA25wA4bgO29H4Q6fDP14xEAXq7NfXdQ=
+github.com/Insua/gorm-migrate v0.0.5 h1:8p7DK7FmVDBJB9LFlfErnhjxmBEm5zX9DBLZbW5ah50=
+github.com/Insua/gorm-migrate v0.0.5/go.mod h1:YSpFTI7nWE7hA25wA4bgO29H4Q6fDP14xEAXq7NfXdQ=
 github.com/clbanning/mxj v1.8.5-0.20200714211355-ff02cfb8ea28 h1:LdXxtjzvZYhhUaonAaAKArG3pyC67kGL3YY+6hGG8G4=
 github.com/clbanning/mxj v1.8.5-0.20200714211355-ff02cfb8ea28/go.mod h1:BVjHeAH+rl9rs6f+QIpeRl0tfu10SXn1pUSa5PVGJng=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
@@ -48,6 +52,7 @@ github.com/olekukonko/tablewriter v0.0.1/go.mod h1:vsDQFd/mU46D+Z4whnwzcISnGGzXW
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.3.0/go.mod h1:M5WIy9Dh21IEIfnGCwXGc5bZfKNJtfHm1UVUgZn+9EI=
+golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2 h1:VklqNMn3ovrHsnt90PveolxSbWFaJdECFbxSq0Mqo2M=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/net v0.0.0-20200602114024-627f9648deb9 h1:pNX+40auqi2JqRfOP1akLGtYcn15TUbkhwuCO3foqqM=
 golang.org/x/net v0.0.0-20200602114024-627f9648deb9/go.mod h1:qpuaurCH72eLCgpAm/N6yyVIVM9cpaDIP3A8BGJEC5A=

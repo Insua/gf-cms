@@ -18,10 +18,19 @@ func init() {
 		color.Red.Println(err)
 		os.Exit(0)
 	} else {
-		if g.Cfg().GetBool("gorm.mysql.debug") {
-			global.DB = db
+		if sqlDB, err := db.DB(); err == nil {
+			if err := sqlDB.Ping(); err != nil {
+				color.Red.Println(err)
+				os.Exit(0)
+			}
 		} else {
+			color.Red.Println(err)
+			os.Exit(0)
+		}
+		if g.Cfg().GetBool("gorm.mysql.debug") {
 			global.DB = db.Debug()
+		} else {
+			global.DB = db
 		}
 	}
 }

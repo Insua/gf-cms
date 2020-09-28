@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^7.1.2",
     "antd": "^4.5.2",
     "axios": "^0.19.2",
+    "collect.js": "^4.28.2",
     "customize-cra": "^1.0.0",
     "http-proxy-middleware": "^1.0.5",
     "nprogress": "^0.2.0",
