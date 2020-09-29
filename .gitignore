@@ -19,3 +19,8 @@ main
 config/config.toml
 boot/admin.go
 storage/session
+node_modules
+public/css
+public/js
+public/mix-manifest.json
+resource/node_modules

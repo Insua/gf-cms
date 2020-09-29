@@ -13,9 +13,10 @@
 
 # Template.
 [viewer]
-    Path        = "template"
+    Path        = "resource/template"
     DefaultFile = "index.html"
     Delimiters  =  ["${", "}"]
+    Title       = "GF CMS"
 
 # Database.
 [database]
