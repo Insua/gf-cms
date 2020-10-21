@@ -4,6 +4,7 @@ import (
 	"errors"
 	um "gf-cms/app/model/auth/user"
 	"gf-cms/global"
+	"strings"
 
 	"golang.org/x/crypto/bcrypt"
 
@@ -14,9 +15,13 @@ import (
 )
 
 func Rule() {
-	if err := gvalid.RegisterRule("login", func(value interface{}, message string, params map[string]interface{}) error {
-		name := gconv.String(params["name"])
-		password := gconv.String(params["password"])
+	if err := gvalid.RegisterRule("login", func(rule string, value interface{}, message string, params map[string]interface{}) error {
+		ruleArr := strings.Split(rule, ":")
+		if len(ruleArr) != 2 {
+			panic("校验规则无用户名参数")
+		}
+		name := gconv.String(params[ruleArr[1]])
+		password := gconv.String(value)
 		user := um.User{}
 		affected := global.DB.Where(g.Map{
 			"name": name,

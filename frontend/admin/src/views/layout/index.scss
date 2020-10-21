@@ -18,8 +18,16 @@
 
   .layout-logo {
     height: 32px;
-    background: rgba(255, 255, 255, 0.2);
     margin: 16px;
+    img {
+      width: 100%;
+    }
+    .min-name {
+      font-weight: bold;
+      color: purple;
+      line-height: 30px;
+      font-size: 14px;
+    }
   }
 
   .site-layout-content {

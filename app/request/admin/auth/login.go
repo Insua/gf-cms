@@ -8,7 +8,7 @@ type LoginRequest struct {
 var (
 	LoginRequestRules = map[string]string{
 		"Name":     "required",
-		"Password": "required|login",
+		"Password": "required|login:name",
 	}
 	LoginRequestMessages = map[string]interface{}{
 		"Name": map[string]string{

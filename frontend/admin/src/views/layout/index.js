@@ -30,7 +30,12 @@ class Layout extends Component {
       return (
         <Container className="out-container">
           <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
-            <div className="layout-logo">gf cms</div>
+            <div className="layout-logo">
+              {
+                this.state.collapsed ? <div className="min-name">gf cms</div> :
+                <img src={require('_a/images/logo.png')} alt='logo'/>
+              }
+            </div>
             <SideMenu/>
           </Sider>
           <Container className="layout-container">
