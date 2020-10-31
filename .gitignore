@@ -24,3 +24,4 @@ public/css
 public/js
 public/mix-manifest.json
 resource/node_modules
+/test.go
