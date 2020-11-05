@@ -5,14 +5,17 @@ import (
 	_ "gf-cms/packed"
 	"os"
 
+	"github.com/gogf/gf/frame/g"
 	"github.com/gookit/color"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
-
-	"github.com/gogf/gf/frame/g"
 )
 
 func init() {
+	db()
+}
+
+func db() {
 	db, err := gorm.Open(mysql.Open(g.Cfg().GetString("gorm.mysql.dsn")), &gorm.Config{})
 	if err != nil {
 		color.Red.Println(err)

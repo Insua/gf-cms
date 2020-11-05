@@ -3,15 +3,19 @@ package function
 import (
 	"github.com/gogf/gf/encoding/gjson"
 	"github.com/gogf/gf/os/gfile"
+	"github.com/gogf/gf/os/gres"
 	"github.com/gogf/gf/util/gconv"
 )
 
 func Mix(url string) string {
-	if !gfile.IsFile("public/mix-manifest.json") {
-		panic("dos not have mix manifest file")
+	var j *gjson.Json
+	var err error
+	if gfile.IsFile("public/mix-manifest.json") {
+		j, err = gjson.Load("public/mix-manifest.json")
+	} else {
+		mixFile := gres.GetContent("public/mix-manifest.json")
+		j, err = gjson.LoadContent(mixFile)
 	}
-
-	j, err := gjson.Load("public/mix-manifest.json")
 	if err != nil {
 		panic(err)
 	}
