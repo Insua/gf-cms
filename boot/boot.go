@@ -4,6 +4,7 @@ import (
 	"gf-cms/global"
 	_ "gf-cms/packed"
 	"os"
+	"time"
 
 	"github.com/gogf/gf/frame/g"
 	"github.com/gookit/color"
@@ -26,10 +27,14 @@ func db() {
 				color.Red.Println(err)
 				os.Exit(0)
 			}
+			sqlDB.SetMaxIdleConns(10)
+			sqlDB.SetMaxOpenConns(100)
+			sqlDB.SetConnMaxLifetime(time.Hour)
 		} else {
 			color.Red.Println(err)
 			os.Exit(0)
 		}
+
 		if g.Cfg().GetBool("gorm.mysql.debug") {
 			global.DB = db.Debug()
 		} else {

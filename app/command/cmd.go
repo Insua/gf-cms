@@ -1,14 +1,13 @@
-package main
+package command
 
 import (
 	"gf-cms/app/command/migrate"
 
-	"github.com/gookit/color"
-
 	"github.com/gogf/gf/os/gcmd"
+	"github.com/gookit/color"
 )
 
-func main() {
+func Cmd() {
 	command := gcmd.GetArg(1)
 
 	switch command {
