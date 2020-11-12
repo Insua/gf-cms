@@ -20,7 +20,7 @@ type ArticleCategory struct {
 	ID        uint   `gorm:"primaryKey"`
 	Name      string `gorm:"size:255"`
 	Lft       uint   `gorm:"not null"`
-	Rft       uint   `gorm:"not null"`
+	Rgt       uint   `gorm:"not null"`
 	Parent    *uint
 	CreatedAt time.Time
 	UpdatedAt time.Time
